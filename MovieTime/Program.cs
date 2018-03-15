@@ -43,7 +43,7 @@ namespace MovieTime {
         }
 
         static void ConfigScreenSaver() {
-            MessageBox.Show("not implemented");
+            Application.Run(new ConfigForm());
         }
     }
 }
