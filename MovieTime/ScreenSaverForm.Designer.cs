@@ -1,5 +1,5 @@
 ﻿namespace MovieTime {
-    partial class Form1 {
+    partial class ScreenSaverForm {
         /// <summary>
         /// 必要なデザイナー変数です。
         /// </summary>
