@@ -23,7 +23,7 @@ namespace MovieTime {
                         ShowScreenSaver();
                         return;
                     case "/p":
-                        PreviewScreenSaver();
+                        PreviewScreenSaver(new IntPtr(long.Parse(args[1])));
                         return;
                 }
             }
@@ -38,8 +38,8 @@ namespace MovieTime {
             Application.Run();
         }
 
-        static void PreviewScreenSaver() {
-            MessageBox.Show("not implemented");
+        static void PreviewScreenSaver(IntPtr previewHandle) {
+            Application.Run(new ScreenSaverForm(previewHandle));
         }
 
         static void ConfigScreenSaver() {
