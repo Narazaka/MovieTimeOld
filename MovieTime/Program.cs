@@ -10,11 +10,24 @@ namespace MovieTime {
         /// アプリケーションのメイン エントリ ポイントです。
         /// </summary>
         [STAThread]
-        static void Main() {
+        static void Main(string[] args) {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            ShowScreenSaver();
-            Application.Run();
+            RunMain(args);
+        }
+
+        static void RunMain(string[] args) {
+            if (args.Length > 0) {
+                switch (args[0].ToLower().Trim().Substring(0, 2)) {
+                    case "/s":
+                        ShowScreenSaver();
+                        return;
+                    case "/p":
+                        PreviewScreenSaver();
+                        return;
+                }
+            }
+            ConfigScreenSaver();
         }
 
         static void ShowScreenSaver() {
@@ -22,6 +35,15 @@ namespace MovieTime {
                 var form = new ScreenSaverForm(screen.Bounds);
                 form.Show();
             }
+            Application.Run();
+        }
+
+        static void PreviewScreenSaver() {
+            MessageBox.Show("not implemented");
+        }
+
+        static void ConfigScreenSaver() {
+            MessageBox.Show("not implemented");
         }
     }
 }
