@@ -14,6 +14,7 @@ namespace MovieTime {
             InitializeComponent();
             Bounds = bounds;
             Cursor.Hide();
+            TopMost = true;
         }
     }
 }
