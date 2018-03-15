@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.IO;
 
 namespace MovieTime {
     public partial class ScreenSaverForm : Form {
@@ -63,6 +64,14 @@ namespace MovieTime {
         private void Exit() {
             if (IsPreviewMode) return;
             Environment.Exit(0);
+        }
+
+        private void VlcLibDirectoryNeeded(object sender, Vlc.DotNet.Forms.VlcLibDirectoryNeededEventArgs e) {
+            e.VlcLibDirectory = new DirectoryInfo(Path.Combine(
+                Path.GetDirectoryName(Application.ExecutablePath),
+                "libvlc",
+                IntPtr.Size == 4 ? "x86" : "x64"
+                ));
         }
     }
 }

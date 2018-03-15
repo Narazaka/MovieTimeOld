@@ -81,7 +81,9 @@
     <EmbeddedResource Include="ScreenSaverForm.resx">
       <DependentUpon>ScreenSaverForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="get-libvlc.ps1" />
     <None Include="packages.config" />
+    <None Include="prebuild.ps1" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -96,4 +98,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>echo download libvlc...
+powershell -ExecutionPolicy Bypass -NoProfile -NonInteractive -File "$(ProjectDir)prebuild.ps1"</PreBuildEvent>
+  </PropertyGroup>
 </Project>
