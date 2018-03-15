@@ -33,8 +33,8 @@ function Get-Libvlc([string] $indexUri, [string] $dir, [bool] $force) {
             return
         }
     }
-    New-Item -ItemType Directory $dir
     $zipUri = Get-ZipUri-From-Index $indexUri
+    New-Item -ItemType Directory $dir
     Get-Zip-Content $zipUri $dir
     Move-Libvlc-Items $dir
 }

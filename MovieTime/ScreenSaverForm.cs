@@ -73,5 +73,13 @@ namespace MovieTime {
                 IntPtr.Size == 4 ? "x86" : "x64"
                 ));
         }
+
+        private void VlcControl_Click(object sender, EventArgs e) {
+            Exit();
+        }
+
+        private void VlcControl_KeyPress(object sender, KeyPressEventArgs e) {
+            Exit();
+        }
     }
 }
