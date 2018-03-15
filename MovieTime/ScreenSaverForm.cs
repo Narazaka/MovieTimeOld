@@ -81,5 +81,17 @@ namespace MovieTime {
         private void VlcControl_KeyPress(object sender, KeyPressEventArgs e) {
             Exit();
         }
+
+        private void ScreenSaverForm_Shown(object sender, EventArgs e) {
+            PlayNext();
+        }
+
+        private void VlcControl_Stopped(object sender, Vlc.DotNet.Core.VlcMediaPlayerStoppedEventArgs e) {
+            PlayNext();
+        }
+
+        private void PlayNext() {
+            VlcControl.Play(new FileInfo(Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "movie.mp4")));
+        }
     }
 }

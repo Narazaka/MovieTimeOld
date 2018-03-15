@@ -40,6 +40,7 @@
             this.VlcControl.VlcLibDirectory = null;
             this.VlcControl.VlcMediaplayerOptions = null;
             this.VlcControl.VlcLibDirectoryNeeded += new System.EventHandler<Vlc.DotNet.Forms.VlcLibDirectoryNeededEventArgs>(this.VlcLibDirectoryNeeded);
+            this.VlcControl.Stopped += new System.EventHandler<Vlc.DotNet.Core.VlcMediaPlayerStoppedEventArgs>(this.VlcControl_Stopped);
             this.VlcControl.Click += new System.EventHandler(this.VlcControl_Click);
             this.VlcControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VlcControl_KeyPress);
             // 
@@ -52,6 +53,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ScreenSaverForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.Shown += new System.EventHandler(this.ScreenSaverForm_Shown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ScreenSaverForm_KeyPress);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ScreenSaverForm_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.VlcControl)).EndInit();
