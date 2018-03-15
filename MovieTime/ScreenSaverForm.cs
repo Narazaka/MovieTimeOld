@@ -10,8 +10,10 @@ using System.Windows.Forms;
 
 namespace MovieTime {
     public partial class ScreenSaverForm : Form {
-        public ScreenSaverForm() {
+        public ScreenSaverForm(Rectangle bounds) {
             InitializeComponent();
+            Bounds = bounds;
+            Cursor.Hide();
         }
     }
 }

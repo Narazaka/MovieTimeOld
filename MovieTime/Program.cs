@@ -13,7 +13,15 @@ namespace MovieTime {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ScreenSaverForm());
+            ShowScreenSaver();
+            Application.Run();
+        }
+
+        static void ShowScreenSaver() {
+            foreach (var screen in Screen.AllScreens) {
+                var form = new ScreenSaverForm(screen.Bounds);
+                form.Show();
+            }
         }
     }
 }
