@@ -91,7 +91,9 @@ namespace MovieTime {
         }
 
         private void PlayNext() {
-            VlcControl.Play(new FileInfo(Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "movie.mp4")));
+            System.Threading.ThreadPool.QueueUserWorkItem((obj) => {
+                VlcControl.Play(new FileInfo(Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "movie.mp4")));
+            });
         }
     }
 }
